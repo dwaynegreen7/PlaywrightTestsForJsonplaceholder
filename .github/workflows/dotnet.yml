@@ -9,6 +9,10 @@ on:
   pull_request:
     branches: [ "main" ]
 
+defaults:
+  run:
+    working-directory: ./PlaywrightTestsForJsonplaceholder
+
 jobs:
   build:
 
@@ -22,7 +26,6 @@ jobs:
         dotnet-version: 8.0.x
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: PlaywrightTestsForJsonplaceholder
     - name: Build
       run: dotnet build --no-restore
     - name: Test
